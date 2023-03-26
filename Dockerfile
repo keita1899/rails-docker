@@ -1,4 +1,4 @@
-FROM node:15.0.1
+FROM node
 FROM ruby:3.0.2
 
 RUN mkdir /src
