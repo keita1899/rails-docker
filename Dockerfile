@@ -13,7 +13,6 @@ RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
     && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
     && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npx
 
-RUN yarn install
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -22,3 +21,6 @@ RUN apt-get update && apt-get install -y \
 
 COPY Gemfile Gemfile.lock /src/
 RUN bundle install
+
+COPY package.json yarn.lock /src/
+RUN yarn install
